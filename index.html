@@ -3,7 +3,143 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitness</title>
+    <meta name="description" content="Your life happens in motion." />
+    <title>Motion sustains life</title>
+    <link rel="stylesheet" href="fitness.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body></body>
+
+  <body>
+    <!-- Skip Links -->
+    <header>
+      <img src="https://tinyurl.com/mwua9r8a" alt="harmony sign" />
+      <!-- sign opens in new window, type für Log In, centered -->
+      <h1>Piloga - Pilates meets Yoga</h1>
+      <button id="LogInButton">
+        <a href="mypage.html" target="_blank" rel="noopener">My Page</a>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="#about">This is me</a></li>
+          <li><a href="#services">What I do</a></li>
+          <li><a href="#contact-me">Let's connect</a></li>
+          <li>
+            <a
+              href="https://onlinezengarden.com/"
+              target="_blank"
+              rel="noopener"
+              >A Zen Garden for You</a
+            >
+            <!-- sign opens in new window -->
+          </li>
+          <li>
+            <a href="exercises.html" target="_blank" rel="noopener"
+              >Exercises</a
+            >
+          </li>
+          <!-- sign opens in new window -->
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <!-- BtT Button -->
+        <h2>Once upon a time...</h2>
+        <p>
+          Yes - you guessed right! There was a really flexible young woman & her
+          <!-- library for material symbols -->
+          passion to express herself through movement. <br />
+          And if you enjoy movement just as much as I do -
+          <a href="#contact-me"><strong>let's get in touch!</strong></a> I would
+          love to share my experiences and knowledge with <strong>you</strong>.
+        </p>
+        <img
+          src="https://cdn.pixabay.com/photo/2018/01/01/01/56/yoga-3053487_1280.jpg"
+          alt="blond woman doing yoga pose"
+        />
+      </section>
+      <!--/ Section About-->
+
+      <section id="services">
+        <!-- BtT Button -->
+        <h2>Let's start our journey!</h2>
+        <p>
+          I can provide you with personal guidance throughout the whole Piloga
+          process. From getting to know each other, the core principles and
+          finally to your first sequence of exercises.
+        </p>
+        <p>
+          You will also have your personal
+          <a href="mypage.html" target="_blank" rel="noopener"
+            ><strong>page</strong></a
+          >
+          where you can keep track of your nutrition & progress.
+          <!-- library for material symbols -->
+        </p>
+
+        <p>
+          For more inspiration I recommend:
+          <a
+            class="inspo-site"
+            href="https://www.bodymindlife.com/blog/lifestyle/yoga-and-pilates-a-powerful-combination"
+            target="_blank"
+            rel="noopener"
+            >BodyMindLife</a
+          >
+        </p>
+      </section>
+
+      <!--/ Section Services-->
+
+      <section id="contact-me">
+        <!-- BtT Button -->
+        <h2>Let's connect!</h2>
+        <p>
+          For general Q&A please ask my witty Chat-Bot 💕 <br />
+          And <em>never</em> hesitate to get in touch! Just fill out the form
+          below and get in touch:
+        </p>
+        <form>
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            required
+          />
+
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="8"
+            maxlength="100"
+            ;
+            placeholder="Your Message"
+            required
+          ></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+      <!--/ Section Contact------------------->
+    </main>
+    <!---/ Main ------------>
+
+    <footer>
+      <p>&copy; 2025 Claud_S Norway. All rights reserved.</p>
+    </footer>
+    <!--/ Footer --------->
+  </body>
 </html>
