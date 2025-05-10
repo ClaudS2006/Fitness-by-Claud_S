@@ -51,7 +51,7 @@ header {
   padding: 1.5em;
   text-align: center;
 }
-#LogInButton {
+#ChatBotButton {
   background-color: var(--color-primary);
   align-self: center;
   width: clamp(4.5em, 8vw, 8.5em);
