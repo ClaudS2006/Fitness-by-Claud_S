@@ -61,6 +61,20 @@ header {
   /* box-shadow: var(--color-accent); */
   /* text larger then button?! */
 }
+i.fa-up-right-from-square {
+  margin: 0.4em;
+  font-size: 0.85em;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 /* flex-item */
 header img {
   align-self: center;
