@@ -4,20 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Your life happens in motion." />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <title>Motion sustains life</title>
     <link rel="stylesheet" href="fitness.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
+    <!-- HEADER -->
     <header>
       <!-- skip links for faster accessibility, only visible on focus -->
       <nav class="skip-link" role="navigation">
-        <a href="#content"> Skip to main content</a>
-        <!-- <a href="#services">What I do</a> 
-            <a href="#contact-me">Let's connect</a> -->
+        <a href="#content"> Skip to main Chat-Bot</a>
       </nav>
-      <img src="https://tinyurl.com/mwua9r8a" alt="harmony sign" onerror="this.onerror=null; this.src='images/Logo.png';"/>
-      <!-- sign opens in new window, type für Log In, centered -->
+      <img
+        src="https://tinyurl.com/mwua9r8a"
+        alt="harmony sign"
+        onerror="this.onerror=null; this.src='images/Logo.png';"
+      />
+
       <h1>Piloga - Pilates meets Yoga</h1>
       <button id="ChatBotButton">
         <a href="question.html" target="_blank" rel="noopener">Ask Me ✨</a>
@@ -34,17 +42,23 @@
               rel="noopener"
               >A Zen Garden for You</a
             >
-            <!-- sign opens in new window -->
           </li>
           <li>
             <a href="exercises.html" target="_blank" rel="noopener"
               >Exercises</a
             >
           </li>
-          <!-- sign opens in new window -->
         </ul>
       </nav>
     </header>
+    <!-- MAIN -->
+    <main>
+      <!-- FAB back to top -->
+      <a href="#top" class="back-to-top" aria-label="back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+      </a>
+    </main>
+    <!-- FOOTER -->
     <footer>
       <p>&copy; 2025 Claud_S Norway. All rights reserved.</p>
     </footer>
