@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Your life happens in motion." />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <title>Motion sustains life</title>
     <link rel="stylesheet" href="fitness.css" />
     <script src="script.js" defer></script>
@@ -78,11 +83,9 @@
           finally to your first sequence of exercises.
         </p>
         <p>
-          You will also have your personal
-          <a href="mypage.html" target="_blank" rel="noopener"
-            ><strong>page</strong></a
-          >
-          where you can keep track of your nutrition & progress.
+          Please feel free to use my nutrition tracker in the
+          <a href="exercises.html" target="_blank" rel="noopener">Exercises</a>
+          section. where you can keep track of your nutrition & progress.
           <!-- library for material symbols -->
         </p>
 
@@ -110,7 +113,7 @@
           below and get in touch:
         </p>
         <form>
-          <label for="name">Name:</label>
+          <label for="name">Your Name:</label>
           <input
             type="text"
             id="name"
@@ -119,16 +122,17 @@
             required
           />
 
-          <label for="email">Email:</label>
+          <label for="email">Your Email:</label>
           <input
             type="email"
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
             id="email"
             name="email"
             placeholder="Your Email"
             required
           />
 
-          <label for="message">Message:</label>
+          <label for="message">Your Message:</label>
           <textarea
             id="message"
             name="message"
