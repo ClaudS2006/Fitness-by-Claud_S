@@ -29,11 +29,11 @@
         onerror="this.onerror=null; this.src='images/Logo.png';"
       />
       <h1>Piloga - Pilates meets Yoga</h1>
-      <button id="ChatBotButton">
-        <a href="question.html" target="_blank" rel="noopener">Ask Me ✨</a>
+      <a href="question.html" target="_blank" rel="noopener" id="ChatBotButton"
+        >Ask Me ✨
         <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
         <span class="visually-hidden">(Opens in new tab)</span>
-      </button>
+      </a>
       <nav>
         <ul>
           <li><a href="#about">This is me</a></li>
@@ -94,7 +94,7 @@
           <a href="exercises.html" target="_blank" rel="noopener">Exercises</a
           ><i class="fas fa-up-right-from-square" aria-hidden="true"></i>
           <span class="visually-hidden">(Opens in new tab)</span>
-          section. where you can keep track of your nutrition &amp; progress.
+          section to keep track of your nutrition &amp; progress.
         </p>
         <p>
           For more inspiration I recommend:
@@ -117,10 +117,10 @@
           For general Q&A please ask my witty
           <a href="#ChatBotButton">Chat-Bot Sparkle💕</a> <br />
           And <em>never</em> hesitate to get in touch! Just fill out the form
-          below and get in touch:
+          below:
         </p>
         <form>
-          <label for="name">Your Name:</label>
+          <label for="name">Your Name *</label>
           <input
             type="text"
             id="name"
@@ -128,7 +128,7 @@
             placeholder="Your Name"
             required
           />
-          <label for="email">Your Email:</label>
+          <label for="email">Your Email *</label>
           <input
             type="email"
             pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
@@ -138,7 +138,7 @@
             required
           />
 
-          <label for="message">Your Message:</label>
+          <label for="message">Your Message *</label>
           <textarea
             id="message"
             name="message"
