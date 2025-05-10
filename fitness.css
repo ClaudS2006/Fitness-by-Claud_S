@@ -54,7 +54,7 @@ header {
 #ChatBotButton {
   background-color: var(--color-primary);
   align-self: center;
-  width: clamp(4.5em, 8vw, 8.5em);
+  width: clamp(5.5em, 8vw, 8.5em);
   height: auto;
   margin: 1em;
   border-radius: 25%;
@@ -102,7 +102,9 @@ header nav ul {
 }
 header nav ul li {
   display: inline-flex;
-  margin: 0 1.5em;
+  flex-wrap: wrap;
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
+  margin: 1em;
 }
 /* Link Styles */
 a {
