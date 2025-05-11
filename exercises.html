@@ -120,19 +120,20 @@
           with your personal journey.</p>
         <hr>
         <article id="your-body-needs-fuel">
-          <div id="search-area">
-            <label for="search meal">Search Meal</label>
-            <input
-              type="text"
-              name="search meal"
-              id="searchQuery"
-              placeholder="For example: chicken, salad, pasta"
-              required
-            />
-            <button id="searchBtn">Search</button>
+          <div id="search-area" >
+            <label for="searchQuery">Search your next nutritious Meal
+              <input
+                type="text"
+                name="search meal"
+                id="searchQuery"
+                placeholder="For example: chicken, salad, pasta"
+                required
+              />
+              <button id="searchBtn">Search</button>
+            </label>
           </div>
 
-          <div id="results-container"></div>
+          <div id="results-container" aria-label="Results Recipes" aria-live="polite"></div>
         </article>
       </section>
     </main>

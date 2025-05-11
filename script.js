@@ -1,7 +1,7 @@
 // This script fetches recipes from the Spoonacular API based on user input and displays them with nutritional information
 // Ensure you have an API key from Spoonacular and replace it in the API_KEY variable
 // The script listens for a button click, fetches the recipes, and displays them in a structured format"
-const API_KEY = "API_key"; // Replace with your actual API key
+const API_KEY = "API-key"; // Replace with your actual API key
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchQuery");
 const resultsContainer = document.getElementById("results-container");
@@ -53,4 +53,3 @@ function displayResults(recipes) {
   });
 }
 // ---------------------------------------------
-
