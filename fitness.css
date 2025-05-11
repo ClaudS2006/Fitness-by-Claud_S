@@ -71,7 +71,7 @@ i.fa-up-right-from-square {
 /* flex-item */
 header img {
   align-self: center;
-  width: 30%;
+  width: clamp(100px, 50%, 350px);
   opacity: 0.8;
   border: 10px solid var(--color-dark-accent);
   border-image: linear-gradient(
@@ -123,9 +123,9 @@ header nav ul li {
 }
 .skip-link a {
   position: absolute;
-  top: -60px; 
+  top: -60px;
   left: 0;
-  background-color: #000; 
+  background-color: #000;
   color: #fff;
   padding: 8px 16px;
   z-index: 1000;
@@ -189,7 +189,7 @@ section h2 {
   font-size: clamp(1rem, 3vw, 1.6rem);
 }
 section img {
-  max-width: 50%;
+  max-width: 80%;
   height: auto;
   border: 10px solid white;
   border-image: linear-gradient(
@@ -262,5 +262,4 @@ footer p {
   color: var(--color-text);
 }
 @media (max-width: 480px) {
-  
 }

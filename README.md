@@ -5,7 +5,7 @@
 
 // ===== About ===== //
 This project uses the OpenAI Api for general Q&A & offers the use of 
-a Foodtracker API.
+a Foodtracker API from Spoonacular.
 It serves as a project for working with APIs, asynchronous JavaScript, and basic web development. 
 
 // ===== Getting Started ===== //
