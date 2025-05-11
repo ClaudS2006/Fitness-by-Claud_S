@@ -12,7 +12,7 @@ function createLoadingIndicator() {
   loader.classList.add("loading-spinner");
   loader.innerHTML = `
     <div class="spinner"></div>
-    <p>Rezepte werden geladen...</p>
+    <p>Recipes loading...</p>
   `;
   return loader;
 }
@@ -23,7 +23,7 @@ function createErrorMessage(message) {
   errorDiv.classList.add("error-message");
   errorDiv.innerHTML = `
     <p>🚫 ${message}</p>
-    <button class="retry-btn">Erneut versuchen</button>
+    <button class="retry-btn">Please try again</button>
   `;
   
   // event-listener retry-btn
@@ -45,14 +45,14 @@ function validateInput(query) {
   if (!query) {
     return {
       valid: false,
-      message: "Bitte gib einen Suchbegriff ein."
+      message: "Please enter a search word e.g. pasta."
     };
   }
   
   if (query.length < 2) {
     return {
       valid: false,
-      message: "Der Suchbegriff ist zu kurz. Bitte gib mindestens 2 Zeichen ein."
+      message: "Search word must be 2 signs minimum."
     };
   }
   
@@ -106,17 +106,17 @@ async function fetchRecipes(query) {
     
     // handles HTTP-statuscode
     if (!response.ok) {
-      let errorMessage = "Es gab ein Problem beim Abrufen der Rezepte.";
+      let errorMessage = "An error occured while loading.";
       
       // error handling based on status code
       if (response.status === 401 || response.status === 403) {
-        errorMessage = "API-Schlüssel ungültig oder Zugriffsberechtigung fehlt.";
+        errorMessage = "API-Schlüssel invalid or faulty access-rights.";
       } else if (response.status === 402) {
-        errorMessage = "API-Kontingent überschritten. Bitte versuche es später erneut.";
+        errorMessage = "API quota exceeded. Please try again later..";
       } else if (response.status === 404) {
-        errorMessage = "Die angeforderte Ressource wurde nicht gefunden.";
+        errorMessage = "The requested resource was not found.";
       } else if (response.status >= 500) {
-        errorMessage = "Server-Fehler. Bitte versuche es später erneut.";
+        errorMessage = "Server error. Please try again later..";
       }
       
       throw new Error(errorMessage);
@@ -127,7 +127,7 @@ async function fetchRecipes(query) {
     // validate response data
     // Check if the response is in the expected format
     if (!data || typeof data !== 'object') {
-      throw new Error("Unerwartetes Antwortformat vom Server.");
+      throw new Error("Unexpected response format from the server.");
     }
     
     // check if results are empty
@@ -136,8 +136,8 @@ async function fetchRecipes(query) {
       const noResultsDiv = document.createElement("div");
       noResultsDiv.classList.add("no-results");
       noResultsDiv.innerHTML = `
-        <p>Keine Rezepte für "${query}" gefunden.</p>
-        <p>Versuche es mit einem anderen Suchbegriff oder überprüfe die Schreibweise.</p>
+        <p>No recipes found for "${query}" .</p>
+        <p>Try a different search term or check your spelling.</p>
       `;
       resultsContainer.appendChild(noResultsDiv);
       setLoadingState(false);
@@ -146,10 +146,10 @@ async function fetchRecipes(query) {
     
     displayResults(data.results);
   } catch (err) {
-    console.error("Fehler beim Abrufen der Rezepte:", err);
+    console.error("Error fetching recipes:", err);
     
     resultsContainer.innerHTML = "";
-    resultsContainer.appendChild(createErrorMessage(err.message || "Es gab einen Fehler beim Laden der Rezepte."));
+    resultsContainer.appendChild(createErrorMessage(err.message || "There was an error loading the recipes."));
   } finally {
     setLoadingState(false);
   }
@@ -175,23 +175,23 @@ function displayResults(recipes) {
       const imageUrl = recipe.image || "placeholder-recipe-image.jpg";
       
       card.innerHTML = `
-        <h3>${recipe.title || "Unbenanntes Rezept"}</h3>
+        <h3>${recipe.title || "Untitled recipe"}</h3>
         <img 
           src="${imageUrl}" 
-          alt="${recipe.title || 'Rezeptbild'}" 
+          alt="${recipe.title || 'Recipe image'}" 
           onerror="this.onerror=null;this.src='placeholder-recipe-image.jpg';"
         />
-        <p><strong>Kalorien:</strong> ${getNutrient("Calories")} kcal</p>
+        <p><strong>Calories:</strong> ${getNutrient("Calories")} kcal</p>
         <p><strong>Protein:</strong> ${getNutrient("Protein")} g</p>
-        <p><strong>Kohlenhydrate:</strong> ${getNutrient("Carbohydrates")} g</p>
-        <p><strong>Fett:</strong> ${getNutrient("Fat")} g</p>
+        <p><strong>Karbohydrates:</strong> ${getNutrient("Carbohydrates")} g</p>
+        <p><strong>Fat:</strong> ${getNutrient("Fat")} g</p>
       `;
       resultsContainer.appendChild(card);
     });
   } catch (err) {
-    console.error("Fehler beim Anzeigen der Ergebnisse:", err);
+    console.error("Error displaying the results:", err);
     resultsContainer.innerHTML = "";
-    resultsContainer.appendChild(createErrorMessage("Fehler beim Anzeigen der Ergebnisse."));
+    resultsContainer.appendChild(createErrorMessage("Error displaying the results:"));
   }
 }
 
