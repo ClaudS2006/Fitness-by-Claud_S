@@ -10,7 +10,9 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <title>Motion sustains life</title>
+    <!--two stylesheets: global consistency from main page & specific styling for this page -->
     <link rel="stylesheet" href="fitness.css" />
+    <link rel="stylesheet" href="exercises.css"> 
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -54,11 +56,12 @@
       </a>
       <section id="exercises" aria-labelledby="uebungen-title">
         <h2>Exercise Selection</h2>
+        <hr>
         <p>
           To give you a gentle introduction to what we'll be exploring together,
           I've selected a few example exercises — thoughtfully chosen to offer
           you a glimpse through both imagery and brief descriptions, for a calm
-          and holistic understanding.
+          and holistic understanding.<hr>
         </p>
         <article class="exercise-card">
           <img src="pic1.jpg" alt="Screenshot Exercise" />
@@ -98,7 +101,37 @@
         </article>
       </section>
 
-      <section id="nutrition"></section>
+      <section id="nutrition">
+        <h2>Your Body needs Fuel</h2>
+        <hr>
+        <p>
+          Nutrition is a vital part of your well-being. 
+          It fuels your body and mind, 
+          helping you to feel energized and focused. 
+          Whether you're looking to maintain your weight, 
+          build muscle, or simply eat healthier, 
+          understanding your nutritional needs is key. <br>
+          To help you reach your goals, 
+          I have created a simple tool 
+          that allows you to explore 
+          nutritional insights and discover 
+          meals that support your rhythm, 
+          energy, and well-being — all in tune 
+          with your personal journey.</p>
+        <hr>
+        <article id="your-body-needs-fuel">
+          <div id="search-area">
+            <input
+              type="text"
+              id="searchQuery"
+              placeholder="Search for meals..."
+            />
+            <button id="searchBtn">Search</button>
+          </div>
+
+          <div id="results-container"></div>
+        </article>
+      </section>
     </main>
     <!-- FOOTER -->
     <footer>
