@@ -233,7 +233,7 @@ textarea:focus {
   border-color: var(--color-accent);
 }
 
-button {
+.submit-btn {
   font-size: clamp(0.6rem, 2vw, 1.15rem);
   padding: 0.8em;
   margin-top: 1rem;
@@ -243,12 +243,12 @@ button {
   border-radius: 8px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-button:hover {
+.submit-btn:hover {
   cursor: pointer;
   color: black;
   background-color: var(--color-cta-hover);
 }
-button:focus {
+.submit-btn:focus {
   outline: 3px solid var(--color-cta);
   outline-offset: 2px;
   border-color: var(--color-cta);
