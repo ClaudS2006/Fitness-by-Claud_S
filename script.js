@@ -200,3 +200,48 @@ function displayResults(recipes) {
 function logError(context, error) {
   console.error(`[${context}] ${error.message}`, error);
 }
+
+// Question Chat Bot Sparkle
+// This function indicates that the bot is typing
+// It creates a typing indicator and appends it to the chat log
+
+function showTypingIndicator() {
+  const chatLog = document.querySelector('.chat-log');
+
+  const typingIndicator = document.createElement('li');
+  typingIndicator.classList.add('chat-message', 'bot', 'typing-indicator');
+  typingIndicator.innerHTML = `
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  `;
+
+  chatLog.appendChild(typingIndicator);
+  chatLog.scrollTop = chatLog.scrollHeight; // Automatisch scrollen
+}
+
+function hideTypingIndicator() {
+  const typing = document.querySelector('.typing-indicator');
+  if (typing) typing.remove();
+}
+
+function addBotMessage(text) {
+  hideTypingIndicator();
+
+  const chatLog = document.querySelector('.chat-log');
+  const botMessage = document.createElement('li');
+  botMessage.classList.add('chat-message', 'bot');
+  botMessage.innerHTML = `<p>${text}</p>`;
+  
+  chatLog.appendChild(botMessage);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+// Beispiel: Bot "denkt" 2 Sekunden
+function simulateBotResponse(userMessage) {
+  showTypingIndicator();
+
+  setTimeout(() => {
+    addBotMessage("Hier ist die Antwort auf: " + userMessage);
+  }, 2000);
+}
