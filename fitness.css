@@ -171,6 +171,11 @@ a:focus {
   color: black;
   cursor: pointer;
 } 
+.back-to-top:focus {
+  outline: 3px solid var(--color-cta);
+  outline-offset: 2px;
+  border-color: var(--color-cta);
+}
 /* Main Styles */
 main {
   padding: clamp(0.8rem, 1vw, 1.5em);
