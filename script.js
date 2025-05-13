@@ -201,3 +201,45 @@ function logError(context, error) {
   console.error(`[${context}] ${error.message}`, error);
 }
 
+// FORM SUBMIT 
+
+const emailButton = document.querySelector(".submit-btn");
+
+emailButton.addEventListener("click", () => {
+  window.location.href = "mailto:cstoll2006@gmail.com";
+});
+
+emailButton.addEventListener("keydown", (event) => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault(); // no scroll on key press
+    emailButton.click();    // simultes click event
+  }
+});
+
+// MESSAGE SENT TEXT
+
+const messageSent = document.getElementById("confirmation-output");
+
+emailButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  // sends email
+  const mailtoLink = 'mailto:cstoll2006@gmail.com';
+  const emailSent = window.location.href = mailtoLink;  // tries to open mail client
+
+  if (emailSent) {
+    // success message if email client opened
+    confirmationOutput.textContent = "Your message has been sent successfully!";
+    confirmationOutput.style.color = "green";  // success color
+  } else {
+    // error message if email client failed to open
+    confirmationOutput.textContent = "Oops! Something went wrong. Please try again later.";
+    confirmationOutput.style.color = "red";  // error color
+  }
+
+  // message dissappears after 5 seconds
+  // simple timeout to clear the message after 5 seconds
+  setTimeout(() => {
+    confirmationOutput.textContent = "";
+  }, 5000);
+});

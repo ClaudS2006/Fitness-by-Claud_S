@@ -29,7 +29,12 @@
         onerror="this.onerror=null; this.src='images/Logo.png';"
       />
       <h1>Piloga - Pilates meets Yoga</h1>
-      <a href="question.html" target="_blank" rel="noopener" id="ChatBotButton" role="button"
+      <a
+        href="question.html"
+        target="_blank"
+        rel="noopener"
+        id="ChatBotButton"
+        role="button"
         >Ask Me ✨
         <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
         <span class="visually-hidden">(Opens in new tab)</span>
@@ -148,10 +153,14 @@
             placeholder="Your Message"
             required
           ></textarea>
-          <a class="submit-btn" href="mailto:cstoll2006@gmail.com" role="button"
+          <a
+            class="submit-btn"
+            href="mailto:cstoll2006@gmail.com"
+            role="button"
+            tabindex="0"
             >Send Message
-            </a>
-          <!-- field for success p -->
+          </a>
+          <p id="confirmation-output"></p>
         </form>
       </section>
     </main>
