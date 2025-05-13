@@ -85,7 +85,7 @@ searchBtn.addEventListener("click", () => {
 // while fetching data
 function setLoadingState(isLoading) {
   searchBtn.disabled = isLoading;
-  searchBtn.innerText = isLoading ? "Suche..." : "Search";
+  searchBtn.innerText = isLoading ? "Search..." : "Search";
   searchInput.disabled = isLoading;
   
   if (isLoading) {
@@ -183,7 +183,7 @@ function displayResults(recipes) {
         />
         <p><strong>Calories:</strong> ${getNutrient("Calories")} kcal</p>
         <p><strong>Protein:</strong> ${getNutrient("Protein")} g</p>
-        <p><strong>Karbohydrates:</strong> ${getNutrient("Carbohydrates")} g</p>
+        <p><strong>Carbohydrates:</strong> ${getNutrient("Carbohydrates")} g</p>
         <p><strong>Fat:</strong> ${getNutrient("Fat")} g</p>
       `;
       resultsContainer.appendChild(card);
@@ -200,3 +200,4 @@ function displayResults(recipes) {
 function logError(context, error) {
   console.error(`[${context}] ${error.message}`, error);
 }
+

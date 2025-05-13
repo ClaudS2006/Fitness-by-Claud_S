@@ -13,6 +13,7 @@ It serves as a project for working with APIs, asynchronous JavaScript, and basic
 Prerequisites:
 
 Get your API-key from Spoonacular by registering for a free account.
+You will also need an API-key from OpenAI (https://platform.openai.com/account/api-keys). Create a free account & create new secret key. Store it safely because YOU CAN ONLY SEE IT ONCE!
 Basic JavaScript knowledge (especially working with fetch(), promises, and async/await)
 HTML & CSS (to structure and style the page)
 A code editor (e.g., VS Code)

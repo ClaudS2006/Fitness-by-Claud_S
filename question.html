@@ -11,7 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <title>Motion sustains life</title>
     <link rel="stylesheet" href="fitness.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="question.css" />
+    <script src="script1.js" defer></script>
   </head>
   <body>
     <!-- HEADER -->
@@ -63,6 +64,43 @@
       <a href="#top" class="back-to-top" aria-label="back to top">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
       </a>
+      <section aria-label="chat window" role="region" class="chat-window">
+        <h2 class="visually-hidden">Chat with Sparkle ✨</h2>
+        <!-- Chat-Log -->
+        <ul
+          class="chat-log"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+        >
+          <li class="chat-message bot" aria-label="Sparkle says:">
+            <p>Hi! How can I help you today?</p>
+          </li>
+          <li class="chat-message user" aria-label="You say:">
+            <p>How does this chat work?</p>
+          </li>
+        </ul>
+        <!-- User  Input Field -->
+        <form
+          class="chat-input"
+          role="form"
+          aria-label="Send message to Sparkle ✨"
+        >
+          <label for="chat-message" class="visually-hidden"
+            >Enter message</label
+          >
+          <input
+            type="text"
+            id="chat-message"
+            name="message"
+            placeholder="Write your message..."
+            required
+          />
+          <button class="chat-button" type="submit" aria-label="Send Message to Sparkle ✨">
+            Send
+          </button>
+        </form>
+      </section>
     </main>
     <!-- FOOTER -->
     <footer>
