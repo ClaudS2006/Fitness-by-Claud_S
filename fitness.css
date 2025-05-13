@@ -12,6 +12,8 @@
   --color-cta: #823c1c;        /* darker terracotta */
   --color-cta-hover: #c8561f;  /* light terracotta */
   --color-cta-search: #ff6b35; /* bright orange */
+  --color-bg-retry-btn: #ff5252;     /* lihgt red */
+  --color-bg-retry-btn-hover: #d32f2f; /* dark red */
   --color-bg-transparent: rgba(59, 31, 43, 0.3);
   --color-bg-nutrition: #fff8f0;
   
