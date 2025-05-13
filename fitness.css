@@ -43,6 +43,8 @@ body:focus {
 p {
   font-size: clamp(0.8rem, 3vw, 1.35rem);
   color: var(--color-text);
+  margin-left: 2em;
+  margin-right: 2em;
 }
 /* Header Styles */
 /* flexitem & flexcontainer*/
