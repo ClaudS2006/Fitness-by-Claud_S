@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <title>Motion sustains life</title>
     <link rel="stylesheet" href="fitness.css" />
-    <script src="script.js" defer></script>
+    <script src="fitness.js" defer></script>
   </head>
 
   <body>
@@ -124,7 +124,7 @@
           And <em>never</em> hesitate to get in touch! Just fill out the form
           below:
         </p>
-        <form>
+        <form id="contact-form">
           <label for="name">Your Name *</label>
           <input
             type="text"
@@ -153,14 +153,10 @@
             placeholder="Your Message"
             required
           ></textarea>
-          <a
-            class="submit-btn"
-            href="mailto:cstoll2006@gmail.com"
-            role="button"
-            tabindex="0"
-            >Send Message
-          </a>
-          <p id="confirmation-output"></p>
+          <button type="submit" class="submit-btn" aria-label="Send Message">
+            Send Message
+          </button>
+          <p id="confirmation-output" aria-live="polite"></p>
         </form>
       </section>
     </main>
