@@ -36,7 +36,7 @@ h3 {
   font-size: clamp(1rem, 3vw, 1.6rem);
 }
 .exercise-card a {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
   text-decoration: none;
   color: var(--color-dark-accent);
 }
