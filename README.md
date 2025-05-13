@@ -1,5 +1,5 @@
 # Fitness by Claud_S
- Multipage with intro. exercises, chatbot & api for food tracking
+ Multipage with intro. exercises, chatbot & api for food recipes
 
  Website on Fitness, Exercises, Nutrition & my Chat-Bot Sparkle ✨
 
@@ -12,6 +12,7 @@ It serves as a project for working with APIs, asynchronous JavaScript, and basic
 
 Prerequisites:
 
+Get your API-key from Spoonacular by registering for a free account.
 Basic JavaScript knowledge (especially working with fetch(), promises, and async/await)
 HTML & CSS (to structure and style the page)
 A code editor (e.g., VS Code)
