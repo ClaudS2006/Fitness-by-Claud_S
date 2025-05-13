@@ -12,11 +12,11 @@ form.addEventListener("submit", (event) => {
     output.style.color = "red";
     return;
   }
-
+// removes spaces form user input
   const name = form.name.value.trim();
   const email = form.email.value.trim();
   const message = form.message.value.trim();
-
+// builds mail entry
   const subject = encodeURIComponent("New message from " + name);
   const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
   window.location.href = `mailto:cstoll2006@gmail.com?subject=${subject}&body=${body}`;
