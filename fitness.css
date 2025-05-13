@@ -166,6 +166,11 @@ a:focus {
   border-radius: 50%;
   text-decoration: none;
 }
+.back-to-top:hover {
+  background: var(--color-cta);
+  color: black;
+  cursor: pointer;
+} 
 /* Main Styles */
 main {
   padding: clamp(0.8rem, 1vw, 1.5em);
