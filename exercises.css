@@ -2,6 +2,7 @@
 #exercises {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 hr {
   border: 1px solid var(--color-border);
@@ -10,11 +11,12 @@ hr {
 .exercise-card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.5rem;
   padding: 1.5em;
   margin: clamp(1em,2vw,3em);
   background-color: var(--color-bg-transparent);
-  border: 3px solid var(--color-dark-accent);
+  border: 3px solid var(--color-border);
   border-radius: 8px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
 }
