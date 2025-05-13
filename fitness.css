@@ -167,7 +167,7 @@ a:focus {
   text-decoration: none;
 }
 .back-to-top:hover {
-  background: var(--color-cta);
+  background: var(--color-cta-hover);
   color: black;
   cursor: pointer;
 } 
