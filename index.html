@@ -16,7 +16,7 @@
 
   <body>
     <!-- skip links for faster accessibility -->
-    <nav class="skip-link" role="skiplink navigation">
+    <nav class="skip-link" aria-label="skiplink navigation">
       <ul>
         <li><a href="#about"> This is me</a></li>
         <li><a href="#services">What I do</a></li>
@@ -28,7 +28,7 @@
       <!-- logo -->
       <h1>Piloga - Pilates meets Yoga</h1>
       <!-- main navigation -->
-      <nav role="main website navigation">
+      <nav aria-label="main website navigation">
         <ul class="main-navigation">
           <li class="main-navigation-link"><a href="#about">This is me</a></li>
           <li class="main-navigation-link">
@@ -40,10 +40,11 @@
           <!-- link to exercises page -->
           <li class="main-navigation-link">
             <a href="exercises.html" target="_blank" rel="noopener noreferrer"
-              >Exercises</a
+              >Exercises<span class="visually-hidden"
+                >(Opens in new tab)</span
+              ></a
             >
             <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
-            <span class="visually-hidden">(Opens in new tab)</span>
           </li>
           <!-- link to chat bot page -->
           <li class="main-navigation-link">
@@ -63,10 +64,6 @@
     </header>
     <!-- MAIN -->
     <main>
-      <!-- FAB back to top -->
-      <a href="#top" class="back-to-top" aria-label="back to top" role="button">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-      </a>
       <!-- Section About-->
       <section id="about">
         <h2>Once upon a time...</h2>
@@ -74,8 +71,10 @@
           Yes - you guessed right! There was a really flexible young woman &amp;
           her passion to express herself through movement. <br />
           And if you enjoy movement just as much as I do -
-          <a href="#contact-me"><strong>let's get in touch!</strong></a> I would
-          love to share my experiences and knowledge with you.
+          <a href="#contact-me" aria-label="to contact form"
+            ><strong>let's get in touch!</strong></a
+          >
+          I would love to share my experiences and knowledge with you.
         </p>
         <img
           src="https://cdn.pixabay.com/photo/2018/01/01/01/56/yoga-3053487_1280.jpg"
@@ -106,10 +105,10 @@
             href="https://www.bodymindlife.com/blog/lifestyle/yoga-and-pilates-a-powerful-combination"
             target="_blank"
             rel="noopener noreferrer"
-            >BodyMindLife</a
-          >
+            >BodyMindLife
+            <span class="visually-hidden">(Opens in new tab)</span>
+          </a>
           <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
-          <span class="visually-hidden">(Opens in new tab)</span>
         </p>
       </section>
       <!-- Section Contact Me -->
@@ -117,7 +116,9 @@
         <h2>Let's connect!</h2>
         <p>
           For general Q&A please ask my witty
-          <a href="#ChatBotButton">Chat-Bot Sparkle💕</a> <br />
+          <a href="#ChatBotButton">Chat-Bot Sparkle💕<span class="visually-hidden"
+                >(Opens in new tab)</span
+              ></a> <br />
           And <em>never</em> hesitate to get in touch! Just fill out the form
           below:
         </p>
@@ -159,6 +160,10 @@
     <!-- FOOTER -->
     <footer>
       <p>&copy; 2025 Claud_S Norway. All rights reserved.</p>
+      <!-- FAB back to top -->
+      <a href="#top" class="back-to-top" aria-label="back to top" role="button" tabindex="0">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+      </a>
     </footer>
   </body>
 </html>

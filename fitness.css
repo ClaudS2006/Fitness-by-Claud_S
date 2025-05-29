@@ -20,6 +20,7 @@ Secondary text for supporting information only
   --color-primary: #c25c4a; /* dusty rose */
   --color-accent: #c27a4a; /* light terracotta */
   --color-dark-accent: #3b1f2b; /* dark aubergine */
+  --color-bg-primary: rgb(223, 222, 222);
   --color-text: #1f1f1f; /* dark grey */
   --color-border: #ccc; /* light grey */
 
@@ -36,7 +37,7 @@ Secondary text for supporting information only
   --border-gradient: linear-gradient(
     to right,
     var(--color-primary),
-    var(--color-accent)
+    var(--color-bg-primary)
   );
   --standard-spacing: clamp(0.8rem, 1vw, 1.5rem);
   --text-size-normal: clamp(0.8rem, 3vw, 1.35rem);
@@ -64,6 +65,8 @@ p {
 }
 header,
 footer {
+  padding: 1.5em;
+  margin: 1.5em;
   border: 2px solid var(--color-border);
   background: url(headerBackground.avif);
   background-color: rgba(255, 255, 255, 0.7);
@@ -75,29 +78,35 @@ footer {
 header {
   display: flex;
   flex-direction: column;
-  padding: 1.5em;
-  margin: 1.5em;
   text-align: center;
   margin-bottom: 3.5em;
 }
 h1 {
   font-size: clamp(1.25rem, 3vw, 5rem);
 }
-
+/* utility class */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 /* Navigation */
 .skip-link {
   position: absolute;
-  top: -9999px;
+  top: -100px;
   left: 0;
   color: #fff;
   background-color: #000;
   z-index: 1000;
   text-decoration: none;
-  
 }
 .skip-link:focus {
-  top: 0px;
-  left: 0;
+  top: 0;
 }
 .skip-link a {
   color: #fff;
@@ -120,30 +129,16 @@ h1 {
   font-size: clamp(1rem, 2vw, 1.5rem);
   margin: 1em;
 }
-
-/* Utility Classes */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
 i.fa-up-right-from-square {
   margin: 0.4em;
   font-size: 0.65em;
 }
 
-/* Link Styles */
+/* link styles */
 a {
   color: var(--color-text);
   text-decoration: none;
   font-size: clamp(1rem, 2vw, 2rem);
-  border-radius: 12px;
 }
 
 a:hover {
@@ -154,14 +149,14 @@ a:hover {
 
 a:focus {
   outline: 3px solid var(--color-primary);
-  outline-offset: 10px;
+  outline-offset: 4px;
 }
 /* external link BodyMindLife */
 .inspo-site {
   font-size: clamp(0.9rem, 2vw, 1.15rem);
   color: var(--color-link-inspo);
 }
-/* Special Links */
+/* special link chatrobot*/
 #ChatBotButton {
   align-self: flex-end;
   background-color: var(--color-primary);
@@ -171,22 +166,23 @@ a:focus {
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   border-radius: 25%;
   text-decoration: none;
-  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.25em 1em var(--color-primary);
   margin: 0;
 }
 
 #ChatBotButton:hover {
   background-color: var(--color-cta);
   color: black;
+  transform: translate(2.5px);
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 .back-to-top {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  display: inline-flex;
   background: black;
   color: white;
-  padding: 0.75rem;
+  padding: 0.5rem;
+  height: 50%;
   border-radius: 50%;
   text-decoration: none;
 }
@@ -297,7 +293,11 @@ textarea:focus {
 
 /* Footer Styles */
 footer {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  align-items: center;
   padding: 1em 0;
   margin-top: 1.5em;
 }
