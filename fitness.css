@@ -164,7 +164,7 @@ a:focus {
   color: white;
   padding: 1em;
   font-size: clamp(0.9rem, 2vw, 1.2rem);
-  border-radius: 25%;
+  border-radius: 50px;
   text-decoration: none;
   background-color: var(--color-primary);
   box-shadow: 0 0.25em 1em var(--color-primary);
