@@ -18,39 +18,41 @@
     <!-- HEADER -->
     <header>
       <!-- skip links for faster accessibility, only visible on focus -->
-      <nav class="skip-link" role="navigation">
+      <nav class="skip-link" role="skiplink navigation">
         <ul>
           <li><a href="#about"> This is me</a></li>
           <li><a href="#services">What I do</a></li>
           <li><a href="#contact-me">Let's connect</a></li>
         </ul>
       </nav>
-      <!-- link to chat bot page -->
-      <a
-        href="question.html"
-        target="_blank"
-        rel="noopener noreferrer"
-        id="ChatBotButton"
-        role="button"
-        >Ask Me ✨
-        <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
-        <span class="visually-hidden">(Opens in new tab)</span>
-      </a>
       <!-- logo -->
       <h1>Piloga - Pilates meets Yoga</h1>
       <!-- main navigation -->
-      <nav>
-        <ul>
-          <li><a href="#about">This is me</a></li>
-          <li><a href="#services">What I do</a></li>
-          <li><a href="#contact-me">Let's connect</a></li>
+      <nav role="main website navigation">
+        <ul class="main-navigation">
+          <li class="main-navigation-link"><a href="#about">This is me</a></li>
+          <li class="main-navigation-link"><a href="#services">What I do</a></li>
+          <li class="main-navigation-link"><a href="#contact-me">Let's connect</a></li>
           <!-- link to exercises page -->
-          <li>
+          <li class="main-navigation-link">
             <a href="exercises.html" target="_blank" rel="noopener noreferrer"
               >Exercises</a
             >
             <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
             <span class="visually-hidden">(Opens in new tab)</span>
+          </li>
+          <!-- link to chat bot page -->
+          <li class="main-navigation-link">
+            <a
+            href="question.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="ChatBotButton"
+            role="button"
+            >Ask Me ✨
+            <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
+            <span class="visually-hidden">(Opens in new tab)</span>
+            </a>
           </li>
         </ul>
       </nav>
@@ -87,9 +89,10 @@
         <p>
           Please feel free to use my nutrition tracker in the
           <a href="exercises.html" target="_blank" rel="noopener noreferrer"
-            >Exercises</a
-          ><i class="fas fa-up-right-from-square" aria-hidden="true"></i>
-          <span class="visually-hidden">(Opens in new tab)</span>
+            >Exercises
+            <span class="visually-hidden">(Opens in new tab)</span>
+          </a>
+          <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
           section to keep track of your nutrition &amp; progress.
         </p>
         <p>

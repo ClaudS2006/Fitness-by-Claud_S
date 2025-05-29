@@ -19,32 +19,41 @@
     <!-- HEADER -->
     <header>
       <!-- skip links for faster accessibility, only visible on focus -->
-      <nav class="skip-link" role="navigation">
-        <a href="#exercises">Exercises</a>
-        <a href="#nutrition">Nutrition</a>
-      </nav>
-      <img
-        src="https://tinyurl.com/mwua9r8a"
-        alt="harmony sign"
-        onerror="this.onerror=null; this.src='images/Logo.png';"
-      />
-      <h1>Piloga - Pilates meets Yoga</h1>
-      <a href="question.html" target="_blank" rel="noopener noreferrer" id="ChatBotButton" role="button"
-        >Ask Me ✨
-        <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
-        <span class="visually-hidden">(Opens in new tab)</span>
-      </a>
-      <!-- main navigation -->
-      <nav>
+      <nav class="skip-link" role="skiplink navigation">
         <ul>
-          <li><a href="./index.html#about">This is me</a></li>
-          <li><a href="./index.html#services">What I do</a></li>
-          <li><a href="./index.html#contact-me">Let's connect</a></li>
-          <li>
-            <a href="#exercises">Exercises</a>
+          <li><a href="#about"> This is me</a></li>
+          <li><a href="#services">What I do</a></li>
+          <li><a href="#contact-me">Let's connect</a></li>
+        </ul>
+      </nav>
+      <!-- logo -->
+      <h1>Piloga - Pilates meets Yoga</h1>
+      <!-- main navigation -->
+      <nav role="main website navigation">
+        <ul class="main-navigation">
+          <li class="main-navigation-link"><a href="#about">This is me</a></li>
+          <li class="main-navigation-link"><a href="#services">What I do</a></li>
+          <li class="main-navigation-link"><a href="#contact-me">Let's connect</a></li>
+          <!-- link to exercises page -->
+          <li class="main-navigation-link">
+            <a href="exercises.html" target="_blank" rel="noopener noreferrer"
+              >Exercises</a
+            >
+            <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
+            <span class="visually-hidden">(Opens in new tab)</span>
           </li>
-          <li>
-            <a href="#nutrition">Nutrition</a>
+          <!-- link to chat bot page -->
+          <li class="main-navigation-link">
+            <a
+            href="question.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            id="ChatBotButton"
+            role="button"
+            >Ask Me ✨
+            <i class="fas fa-up-right-from-square" aria-hidden="true"></i>
+            <span class="visually-hidden">(Opens in new tab)</span>
+            </a>
           </li>
         </ul>
       </nav>
