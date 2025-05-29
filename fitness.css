@@ -46,9 +46,12 @@ Secondary text for supporting information only
 /* Base Elements */
 html {
   scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-
 body {
   display: flex;
   flex-direction: column;
