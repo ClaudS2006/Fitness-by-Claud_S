@@ -161,14 +161,12 @@ a:focus {
 }
 /* special link chatrobot*/
 #ChatBotButton {
-  align-self: flex-end;
-  background-color: var(--color-primary);
   color: white;
-  width: clamp(2em, 8vw, 3.5em);
   padding: 1em;
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   border-radius: 25%;
   text-decoration: none;
+  background-color: var(--color-primary);
   box-shadow: 0 0.25em 1em var(--color-primary);
   margin: 0;
 }
