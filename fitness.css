@@ -80,8 +80,7 @@ a:focus {
 }
 p {
   font-size: var(--text-size-normal);
-  margin-left: clamp(1em, 5vw, 2em);
-  margin-right: clamp(1em, 5vw, 2em);
+  padding: 0.5em;
 }
 header,
 footer {
@@ -314,8 +313,7 @@ footer {
     padding: 1em 0 0 0;
   }
   p {
-    margin-left: 1em;
-    margin-right: 1em;
+    line-height: 1.5;
   }
   footer {
     text-align: center;
