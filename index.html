@@ -114,37 +114,62 @@
           For general Q&A please ask my witty
           <a href="#ChatBotButton"
             >Chat-Bot Sparkle ✨<span class="visually-hidden"
-              >(Opens in new tab)</span>
+              >(Opens in new tab)</span
+            >
           </a>
           And <em>never</em> hesitate to get in touch! Just fill out the form
           below:
         </p>
-        <form id="contact-form">
-          <label for="name">Your Name *</label>
+        <form
+          id="contact-form"
+          action="https://formsubmit.co/32a5f0c47f5d064637ea3725a029f817"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="_next"
+            value="https://clauds2006.github.io/Fitness-by-Claud_S/"
+          />
+          <!-- honey trap against bots-->
+          <label for="honeypot" class="visually-hidden"
+            >Leave this field empty
+          
+          <input
+            type="text"
+            name="_honey"
+            id="honeypot"
+            aria-label="Leave this field empty"
+            tabindex="-1"
+            autocomplete="off"
+          />
+          </label>
+          <label for="name">Your Name <span aria-hidden="true">*</span></label>
           <input
             type="text"
             id="name"
             name="name"
             placeholder="Ola Nordman"
+            autocomplete="name"
             required
           />
 
-          <label for="email">Your Email *</label>
+          <label for="email">Your Email <span aria-hidden="true">*</span></label>
           <input
             type="email"
             pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
             id="email"
             name="email"
             placeholder="nordman@gmail.com"
+            autocomplete="email"
             required
           />
 
-          <label for="message">Your Message *</label>
+          <label for="message">Your Message <span aria-hidden="true">*</span></label>
           <textarea
             id="message"
             name="message"
             rows="8"
-            maxlength="100"
+            maxlength="500"
             placeholder="Type your message here ✨"
             required
           ></textarea>
