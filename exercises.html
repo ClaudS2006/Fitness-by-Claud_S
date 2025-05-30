@@ -17,7 +17,7 @@
   </head>
   <body>
     <!-- skip links for faster accessibility, only visible on focus -->
-      <nav class="skip-link" role="skiplink navigation">
+      <nav class="skip-link" aria-label="skiplink navigation">
         <ul>
           <li><a href="#exercises"> Exercises</a></li>
           <li><a href="#nutrition"> Nutrition</a></li>
@@ -28,7 +28,7 @@
       <!-- logo -->
       <h1>Piloga - Pilates meets Yoga</h1>
       <!-- main navigation -->
-      <nav role="main website navigation">
+      <nav aria-label="main website navigation">
         <ul class="main-navigation">
           <li class="main-navigation-link"><a href="/index.html#contact-me">Let's connect</a></li>
           <!-- link to exercises page -->
@@ -62,14 +62,15 @@
     <main>
       <!-- section exercises -->
       <section id="exercises">
-        <h2>Exercise Selection</h2>
-        <hr>
-        <p>
+        <h2 tabindex="0">Exercise Selection</h2>
+        <!-- <hr class="hr"> -->
+        <p class="exercises-intro">
           To give you a gentle introduction to what we'll be exploring together,
           I've selected a few example exercises — thoughtfully chosen to offer
           you a glimpse through imagery and a link for a more detailed descriptions, for a calm
-          and holistic understanding.<hr>
+          and holistic understanding.
         </p>
+        <!-- <hr class="hr"> -->
         <article class="exercise-card">
           <img src="exercise1.avif" alt="Woman in squatting position" loading="lazy" />
           <h3>Piloga Pose 1 Flying Horse, Vatayanasana</h3>
@@ -133,8 +134,8 @@
       </section>
       <!-- section nutrition -->
       <section id="nutrition">
-        <h2>Your Body needs Fuel</h2>
-        <hr>
+        <h2 tabindex="0">Your Body needs Fuel</h2>
+        <hr class="hr">
         <p>
           Nutrition is a vital part of your well-being. 
           It fuels your body and mind, 
@@ -152,7 +153,7 @@
           energy, and well-being — all in tune 
           with your personal journey.
         </p>
-        <hr>
+        <hr class="hr">
         <!-- API container for Spoonacular recipes -->
         <article id="your-body-needs-fuel">
           <div id="search-area" >
