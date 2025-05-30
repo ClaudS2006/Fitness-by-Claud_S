@@ -150,7 +150,7 @@ header {
 .skip-link a {
   /* focus always on a element */
   position: absolute;
-  top: -100px;
+  top: -150px;
   left: 0;
   color: #fff;
   background-color: #000;
