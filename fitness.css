@@ -41,6 +41,15 @@ Secondary text for supporting information only
   --color-bg-retry-btn-hover: #d32f2f; /* dark red */
   --color-bg-transparent: rgba(59, 31, 43, 0.3);
   --color-bg-nutrition: #fff8f0; /* subtle off white*/
+  /* Typing Indicator */
+  --color-bg-typingInd: #eef2ff; /* grey-ish white*/
+  --color-border-typing-Ind: #c3d3ff; /* velvet light grey*/
+  --color-dot-typingInd: #3b82f6; /* azure */
+  --color-chatmessage: #f0f0f0;
+  --color-bg-message-bot: #eef2ff;
+  --color-border-message-bot: #c3d3ff;
+  --color-bg-message-user: #d1f7c4; 
+  --color-border-message-user: #a4dda2;
 
   /* Common Values */
   --border-gradient: linear-gradient(
@@ -179,10 +188,11 @@ i.fa-up-right-from-square {
 }
 /* special link chatrobot*/
 #ChatBotButton {
-  color: white;
-  padding: 1em;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: bold;
+  color: var(--color-generic-black);
+  padding: 0.5em 1em;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
   border-radius: 50px;
   text-decoration: none;
   background-color: var(--color-primary);
@@ -191,6 +201,7 @@ i.fa-up-right-from-square {
 }
 #ChatBotButton:hover {
   background-color: var(--color-link-button-hover);
+  color: var(--color-generic-white);
   transform: translate(2.5px);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
@@ -198,8 +209,9 @@ i.fa-up-right-from-square {
 }
 .back-to-top {
   display: inline-flex;
+  font-size: 1.25rem;
   background: var(--color-primary);
-  color: var(--color-generic-white);
+  color: var(--color-generic-black);
   padding: 1em;
   height: 50%;
   border-radius: 50%;
@@ -292,7 +304,7 @@ textarea:focus-visible {
   font-size: clamp(1rem, 2vw, 1.15rem);
   padding: 1em;
   margin-top: 2em;
-  color: #fff;
+  color: var(--color-generic-white);
   font-weight: 600;
   background-color: var(--color-secondary);
   border-radius: 8px;
