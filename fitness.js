@@ -1,4 +1,4 @@
-// SEND MESSSAGE
+// SEND MESSSAGE via formsubmit 
 
 const form = document.getElementById("contact-form");
 const output = document.getElementById("confirmation-output");
@@ -11,10 +11,7 @@ form.addEventListener("submit", (e) => {
     return;
   }
   
-  // Zeige "Sending..." bevor das Formular abgesendet wird
+  // show status before sending
   output.textContent = "Sending your message...";
   output.style.color = "blue";
-  
-  // Lass das Formular normal absenden - KEIN preventDefault()
-  // FormSubmit wird zur _next URL weiterleiten
 });
