@@ -29,7 +29,7 @@ Secondary text for supporting information only
 
   /* Functional Colors */
   --color-link-inspo: #005f6a; /* turquoise grey */
-  --color-cta-index-hover: #3b1f2b; /* dark aubergine */
+  --color-link-button-hover: #3b1f2b; /* dark aubergine */
   --color-link-visited: #8e2a56; /* purple*/
   --color-link-focus: #17487f; /* muted blue */
   --color-link-active: #2153dc; /* soft blue*/
@@ -41,7 +41,6 @@ Secondary text for supporting information only
   --color-bg-retry-btn-hover: #d32f2f; /* dark red */
   --color-bg-transparent: rgba(59, 31, 43, 0.3);
   --color-bg-nutrition: #fff8f0; /* subtle off white*/
-  
 
   /* Common Values */
   --border-gradient: linear-gradient(
@@ -50,7 +49,7 @@ Secondary text for supporting information only
     var(--color-bg-primary)
   );
   --standard-spacing: clamp(0.8rem, 1vw, 1.5rem);
-  --text-size-normal: clamp(1rem, 3vw, 1.35rem);
+  --text-size-normal: clamp(1rem, 3vw, 1.15rem);
 }
 
 /* ===== GENERAL STYLES ===== */
@@ -89,8 +88,11 @@ a:focus {
 a:active {
   color: var(--color-link-active);
 }
+h1 {
+  font-size: clamp(1.5rem, 3vw, 5rem);
+}
 h2 {
-  font-size: clamp(1.5rem, 3vw, 4rem);
+  font-size: clamp(1.3rem, 3vw, 4rem);
 }
 p {
   font-size: var(--text-size-normal);
@@ -114,9 +116,6 @@ header {
   text-align: center;
   margin-bottom: 3.5em;
 }
-h1 {
-  font-size: clamp(1.5rem, 3vw, 5rem);
-}
 /* utility class */
 .visually-hidden {
   position: absolute;
@@ -139,7 +138,8 @@ h1 {
 .skip-link li {
   list-style-type: none;
 }
-.skip-link a { /* focus always on a element */
+.skip-link a {
+  /* focus always on a element */
   position: absolute;
   top: -100px;
   left: 0;
@@ -171,10 +171,10 @@ h1 {
 }
 i.fa-up-right-from-square {
   margin: 0.4em 0 0 0.4em;
-  font-size: clamp(0.65rem,2vw, 1rem);
+  font-size: clamp(0.65rem, 2vw, 1rem);
 }
 /* external link BodyMindLife */
-.inspo-site {
+.piloga-link {
   color: var(--color-link-inspo);
 }
 /* special link chatrobot*/
@@ -190,7 +190,7 @@ i.fa-up-right-from-square {
   margin: 0;
 }
 #ChatBotButton:hover {
-  background-color: var(--color-cta-index-hover);
+  background-color: var(--color-link-button-hover);
   transform: translate(2.5px);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
@@ -198,22 +198,23 @@ i.fa-up-right-from-square {
 }
 .back-to-top {
   display: inline-flex;
-  background: black;
-  color: white;
-  padding: 0.5rem;
+  background: var(--color-primary);
+  color: var(--color-generic-white);
+  padding: 1em;
   height: 50%;
   border-radius: 50%;
   text-decoration: none;
 }
 .back-to-top:hover {
-  background: var(--color-cta-hover);
-  color: black;
+  background: var(--color-link-button-hover);
+  color: var(--color-generic-white);
   cursor: pointer;
+  transform: translate(2.5px);
+  transition: all 0.3s ease-in-out;
 }
-.back-to-top:focus {
-  outline: 3px solid var(--color-cta);
-  outline-offset: 2px;
-  border-color: var(--color-cta);
+.back-to-top:focus-visible {
+  outline: 3px solid var(--color-link-focus);
+  outline-offset: 3px;
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -247,24 +248,28 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1em 0;
+  padding-top: 1em;
   margin-top: 1.5em;
   width: 100%;
-  background-color: rgb(223, 222, 222);
-}
-label {
-  margin: 0.5em;
+  background-color: var(--color-bg-primary);
 }
 input,
-textarea,
-label {
-  width: clamp(3rem, 90%, 35rem);
+label,
+textarea {
+  font-weight: 600;
+  font-size: var(--text-size-normal);
+  padding: var(--standard-spacing);
 }
-
+input,
+textarea {
+  width: clamp(3rem, 90%, 35rem);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
 input::placeholder,
 textarea::placeholder {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: clamp(0.8rem,3vw,1rem);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   align-items: flex-start;
   color: var(--color-text);
   padding: 0.5em;
@@ -281,13 +286,12 @@ input:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--color-link-focus);
   outline-offset: 2px;
-  
 }
 
 .submit-btn {
-  font-size: clamp(0.6rem, 2vw, 1.15rem);
-  padding: 0.8em;
-  margin-top: 1rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  padding: 1em;
+  margin-top: 2em;
   color: #fff;
   font-weight: 600;
   background-color: var(--color-secondary);
@@ -296,14 +300,14 @@ textarea:focus-visible {
 }
 
 .submit-btn:hover {
-  cursor: pointer;
-  background-color: var(--color-cta-index-hover);
+  background-color: var(--color-link-button-hover);
+  transform: translate(2px);
+  transition: all 0.3s ease-in-out;
 }
 
-.submit-btn:focus {
-  outline: 3px solid var(--color-cta);
-  outline-offset: 2px;
-  border-color: var(--color-cta);
+.submit-btn:focus-visible {
+  outline: 3px solid var(--color-link-focus);
+  outline-offset: 3px;
 }
 
 /* ===== FOOTER STYLES ===== */
@@ -320,7 +324,9 @@ footer {
 /* ===== Responsive Design ===== */
 
 @media (max-width: 480px) {
-
+  .back-to-top {
+    padding: 01em;
+  }
   section {
     margin: 1.5em;
     padding: 10px;
