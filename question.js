@@ -189,13 +189,15 @@ function createMessageElement(message, role) {
   li.className = `chat-message ${role}`;
   li.setAttribute("aria-label", role === "user" ? "You say:" : "Sparkle says:");
   
-  // support for markdown/formatting with simple paragraph handling
-  const formattedMessage = message.split("\n").map(paragraph => {
-    if (paragraph.trim() === "") return "";
-    return `<p>${paragraph}</p>`;
-  }).join("");
+  // create p 
+  const paragraphs = message.split("\n").filter(p => p.trim() !== "");
   
-  li.innerHTML = formattedMessage || "<p>" + message + "</p>";
+  paragraphs.forEach(paragraph => {
+    const p = document.createElement("p");
+    p.textContent = paragraph;
+    li.appendChild(p);
+  });
+  
   return li;
 }
 
