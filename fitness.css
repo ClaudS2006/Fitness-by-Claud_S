@@ -18,22 +18,30 @@ Secondary text for supporting information only
 :root {
   /* Color Palette */
   --color-primary: #c25c4a; /* dusty rose */
-  --color-secondary: #5a6b7d; /* blue-ish-grey*/
+  --color-secondary: #415061; /* blue-ish-grey*/
   --color-accent: #c27a4a; /* light terracotta */
-  --color-dark-accent: #3b1f2b; /* dark aubergine */
+  --color-dark-accent: #1a2735; /* dark blue grey */
   --color-bg-primary: #ccc; /* light-grey*/
   --color-text: #1f1f1f; /* dark grey */
   --color-border: #dbd9d9; /* soft-light grey */
+  --color-generic-white: #fff; /* White*/
+  --color-generic-black: #000; /* Black */
 
   /* Functional Colors */
-  --color-link-inspo: #005f6a; /* blue grey */
-  --color-cta: #823c1c; /* medium terracotta */
+  --color-link-inspo: #005f6a; /* turquoise grey */
+  --color-cta-index-hover: #3b1f2b; /* dark aubergine */
+  --color-link-visited: #8e2a56; /* purple*/
+  --color-link-focus: #17487f; /* muted blue */
+  --color-link-active: #2153dc; /* soft blue*/
+  /* Button Nutrition Recipes */
   --color-cta-hover: #c8561f; /* caramel */
   --color-cta-search: #ff6b35; /* bright orange */
+  /* Retry Button on Error */
   --color-bg-retry-btn: #ff5252; /* light red */
   --color-bg-retry-btn-hover: #d32f2f; /* dark red */
   --color-bg-transparent: rgba(59, 31, 43, 0.3);
-  --color-bg-nutrition: #fff8f0;
+  --color-bg-nutrition: #fff8f0; /* subtle off white*/
+  
 
   /* Common Values */
   --border-gradient: linear-gradient(
@@ -67,7 +75,7 @@ body {
 a {
   color: var(--color-text);
   text-decoration: none;
-  font-size: clamp(1.15rem, 4vw, 1.5rem);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
 }
 a:hover {
   color: var(--color-dark-accent);
@@ -116,24 +124,29 @@ h1 {
 }
 
 /* NAVIGATION */
-
 .skip-link {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skip-link li {
+  list-style-type: none;
+}
+.skip-link a { /* focus always on a element */
   position: absolute;
   top: -100px;
   left: 0;
   color: #fff;
   background-color: #000;
-  z-index: 1000;
-  text-decoration: none;
-}
-.skip-link:focus {
-  top: 0;
-}
-.skip-link a {
-  color: #fff;
   font-size: 1rem;
-  padding: 0;
+  padding: 0.5em 1em;
   margin: 0;
+  text-decoration: none;
+  z-index: 1000;
+}
+.skip-link a:focus {
+  top: 0;
 }
 .main-navigation {
   display: flex;
@@ -146,13 +159,13 @@ h1 {
 .main-navigation-link a {
   display: inline-flex;
   flex-wrap: wrap;
-  font-size: clamp(1.15rem, 2vw, 2rem);
+  font-size: clamp(1rem, 2vw, 2rem);
   font-weight: 600;
   margin: 1em;
 }
 i.fa-up-right-from-square {
   margin: 0.4em;
-  font-size: 0.65em;
+  font-size: 1rem;
 }
 /* external link BodyMindLife */
 .inspo-site {
@@ -172,7 +185,6 @@ i.fa-up-right-from-square {
 }
 #ChatBotButton:hover {
   background-color: var(--color-cta);
-  color: black;
   transform: translate(2.5px);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
@@ -272,15 +284,14 @@ textarea:focus {
   margin-top: 1rem;
   color: #fff;
   font-weight: 600;
-  background-color: #5a6b7d;
+  background-color: var(--color-secondary);
   border-radius: 8px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .submit-btn:hover {
   cursor: pointer;
-  color: black;
-  background-color: var(--color-cta-hover);
+  background-color: var(--color-cta-index-hover);
 }
 
 .submit-btn:focus {
