@@ -1,20 +1,4 @@
-/* General Styles
 
-Color Usage Guidelines
-Primary Color (#005C9B)
-Should not exceed 40% of the interface
-Primary action areas and key navigation elements
-Use for interactive elements that drive main user journey
-Secondary Color (#D4A5A5)
-Use as accent only (10-20% of interface)
-Avoid using adjacent to error or warning colors
-Pair with neutrals for best effect
-Background & Text
-Background color should cover 60-80% of the interface
-Primary text should be used for all essential reading content
-Secondary text for supporting information only
-
-*/
 :root {
   /* Color Palette */
   --color-primary: #c25c4a; /* dusty rose */
