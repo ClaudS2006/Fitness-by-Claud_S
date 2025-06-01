@@ -69,7 +69,6 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
-  overflow: auto; /* possible to scroll on extr. small screens */
 }
 body {
   display: flex;
