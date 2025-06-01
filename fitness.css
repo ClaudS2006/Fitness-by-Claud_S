@@ -285,7 +285,7 @@ textarea::placeholder {
   align-items: flex-start;
   color: var(--color-text);
   padding: 0.5em;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 input:hover,
 textarea:hover {
