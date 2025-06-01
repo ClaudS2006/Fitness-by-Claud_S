@@ -112,7 +112,7 @@ footer {
   padding: 1.5em;
   margin: 1.5em;
   border: 2px solid var(--color-border);
-  background: url(../Assets/headerBackground.avif);
+  background: url(Assets/headerBackground.avif);
   background-color: rgba(255, 255, 255, 0.7);
   background-blend-mode: lighten;
   box-shadow: 3px 3px 50px var(--color-bg-primary);
