@@ -298,6 +298,7 @@ input:focus-visible,
 textarea:focus-visible {
   outline: 3px solid var(--color-link-focus);
   outline-offset: 2px;
+  transform: translate(2.5px);
 }
 
 .submit-btn {
