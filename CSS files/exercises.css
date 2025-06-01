@@ -66,7 +66,7 @@ h3 {
   content: ""; /* required for pseudo-elements to appear */
   position: absolute; /* places it on top of the parent, not inside normal flow */
   inset: 0; /* same as: top: 0; right: 0; bottom: 0; left: 0; */
-  background-image: url("backgroundMealSearch.avif");
+  background-image: url("../backgroundMealSearch.avif");
   background-size: cover;
   background-position: center;
   opacity: 0.3;
