@@ -1,153 +1,244 @@
- // Konfiguration
-        const config = {
-            apiKey: "your-api-key-here", // HIER IHREN API KEY EINFÜGEN
-            model: "gpt-3.5-turbo",
-            apiEndpoint: "https://api.openai.com/v1/chat/completions"
-        };
+// chat bot Set up & knowledge base
 
-        // Wissensdatenbank
-        const websiteKnowledgeBase = {
-            content: `
-                Meine Website bietet persönliches Coaching in Yoga und Pilates kombiniert.
-                Coaching-Programme sind individuell und die Preise werden entsprechend angepasst.
-                Für Termine kontaktieren Sie mich über mein Kontaktformular.
-                Ich melde mich innerhalb von 48 Stunden bei Ihnen.
-            `
-        };
+// configuration object for the chatbot
+const config = {
+  apiKey: "your-api-key-here", // replace with your actual OpenAI API key when testing
+  model: "gpt-3.5-turbo", // model to use for the chatbot
+  // can be changed to "gpt-4" if you have access
+  apiEndpoint: "https://api.openai.com/v1/chat/completions",
+  maxTokens: 1000,
+  temperature: 0.7,
+};
+const websiteKnowledgeBase = {
+  content: `
+    My website offers personal coaching in Yoga and Pilates combined.
+    Coaching programs are individual and pricing is adjusted accordingly. We will find the best solution for your needs and financial situation.
+    For appointments and questions pleace reach out through my contact form.
+    I will get back to you as soon as possible but please allow 48 hours to pass for responses.
+    Since I don't have a studio yet, I'll arrange a meeting point and training center.
+  `,
+};
 
-        const chatHistory = [];
-        const chatLog = document.getElementById("chat-log");
-        const chatForm = document.getElementById("chat-form");
-        const chatInput = document.getElementById("chat-message");
+// chat history to maintain context
+const chatHistory = [];
 
-        // Chat initialisieren
-        function initChat() {
-            appendBotMessage("Hallo! Wie kann ich Ihnen heute helfen? 🧘‍♀️");
-            chatForm.addEventListener("submit", handleSubmit);
-        }
+// DOM elements
+const chatLog = document.querySelector(".chat-log");
+const chatForm = document.querySelector(".chat-input");
+const chatInput = document.getElementById("chat-message");
 
-        // Formular behandeln
-        async function handleSubmit(event) {
-            event.preventDefault();
-            
-            const userMessage = chatInput.value.trim();
-            if (!userMessage) return;
-            
-            appendUserMessage(userMessage);
-            chatInput.value = "";
-            showTypingIndicator();
-            
-            try {
-                let botResponse;
-                
-                if (config.apiKey === "your-api-key-here") {
-                    // Ohne API - Fallback Antworten
-                    botResponse = getFallbackResponse(userMessage);
-                } else {
-                    // Mit API
-                    botResponse = await sendToOpenAI(userMessage);
-                }
-                
-                hideTypingIndicator();
-                appendBotMessage(botResponse);
-                
-            } catch (error) {
-                hideTypingIndicator();
-                appendBotMessage("Entschuldigung, es gab einen Fehler.");
-                console.error("Error:", error);
-            }
-        }
+// initialize chat
+function initChat() {
+  if (chatLog.querySelectorAll(".chat-message.bot").length === 0) {
+    appendBotMessage("Hi! How can I help you today?");
+  }
 
-        // Fallback-Antworten ohne API
-        function getFallbackResponse(message) {
-            const lowerMessage = message.toLowerCase();
-            
-            if (lowerMessage.includes('preis') || lowerMessage.includes('kosten')) {
-                return "Die Preise sind individuell angepasst. Kontaktieren Sie mich für ein Angebot! 💰";
-            }
-            
-            if (lowerMessage.includes('termin')) {
-                return "Für Termine erreichen Sie mich über das Kontaktformular! 📅";
-            }
-            
-            if (lowerMessage.includes('yoga') || lowerMessage.includes('pilates')) {
-                return "Ich biete individuelles Yoga und Pilates Coaching an! 🧘‍♀️";
-            }
-            
-            return "Vielen Dank für Ihre Nachricht! Kontaktieren Sie mich gerne über das Kontaktformular. 🌟";
-        }
+  // event listener for the form submission
+  chatForm.addEventListener("submit", handleSubmit);
+}
 
-        // OpenAI API Anfrage
-        async function sendToOpenAI(message) {
-            chatHistory.push({ role: "user", content: message });
-            
-            const response = await fetch(config.apiEndpoint, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${config.apiKey}`
-                },
-                body: JSON.stringify({
-                    model: config.model,
-                    messages: [
-                        { 
-                            role: "system", 
-                            content: "Du bist Sparkle ✨, ein Assistent für Yoga und Pilates. Antworte auf Deutsch: " + websiteKnowledgeBase.content 
-                        },
-                        ...chatHistory
-                    ],
-                    max_tokens: 1000,
-                    temperature: 0.7
-                })
-            });
-            
-            const data = await response.json();
-            const botMessage = data.choices[0].message.content;
-            
-            chatHistory.push({ role: "assistant", content: botMessage });
-            return botMessage;
-        }
+// handle form submission
+async function handleSubmit(event) {
+  event.preventDefault();
 
-        // Nachrichten hinzufügen
-        function appendUserMessage(message) {
-            const li = document.createElement("li");
-            li.className = "chat-message user";
-            li.innerHTML = `<p>${message}</p>`;
-            chatLog.appendChild(li);
-            scrollToBottom();
-        }
+  const userMessage = chatInput.value.trim();
 
-        function appendBotMessage(message) {
-            const li = document.createElement("li");
-            li.className = "chat-message bot";
-            li.innerHTML = `<p>${message}</p>`;
-            chatLog.appendChild(li);
-            scrollToBottom();
-        }
+  if (!userMessage) return; // no empty messages
 
-        // Typing Indicator
-        function showTypingIndicator() {
-            const li = document.createElement("li");
-            li.className = "typing-indicator";
-            li.innerHTML = `
-                <div class="typing-dots">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-            `;
-            chatLog.appendChild(li);
-            scrollToBottom();
-        }
+  // display user message
+  appendUserMessage(userMessage);
 
-        function hideTypingIndicator() {
-            const indicator = document.querySelector(".typing-indicator");
-            if (indicator) indicator.remove();
-        }
+  // clear input field
+  chatInput.value = "";
 
-        function scrollToBottom() {
-            chatLog.scrollTop = chatLog.scrollHeight;
-        }
+  // show typing indicator
+  showTypingIndicator();
 
-        // Chat starten
-        document.addEventListener("DOMContentLoaded", initChat);
+  try {
+    let botResponse;
+
+    if (config.apiKey === "your-api-key-here") {
+      // Ohne API - Fallback Antworten verwenden
+      botResponse = getFallbackResponse(userMessage);
+    } else {
+      // Mit API - OpenAI verwenden
+      botResponse = await sendToOpenAI(userMessage);
+    }
+
+    // remove typing indicator
+    removeTypingIndicator();
+
+    // display bot response
+    appendBotMessage(botResponse);
+  } catch (error) {
+    // remove typing indicator
+    removeTypingIndicator();
+
+    // show error message
+    appendBotMessage(
+      "Entschuldigung, es gab einen Fehler. Bitte versuchen Sie es später erneut."
+    );
+    console.error("Error:", error);
+  }
+}
+
+// Fallback-Antworten ohne API
+function getFallbackResponse(message) {
+  const lowerMessage = message.toLowerCase();
+
+  if (lowerMessage.includes("preis") || lowerMessage.includes("kosten")) {
+    return "Die Preise sind individuell angepasst. Kontaktieren Sie mich für ein Angebot! 💰";
+  }
+
+  if (lowerMessage.includes("termin")) {
+    return "Für Termine erreichen Sie mich über das Kontaktformular! 📅";
+  }
+
+  if (lowerMessage.includes("yoga") || lowerMessage.includes("pilates")) {
+    return "Ich biete individuelles Yoga und Pilates Coaching an! 🧘‍♀️";
+  }
+
+  return "Vielen Dank für Ihre Nachricht! Kontaktieren Sie mich gerne über das Kontaktformular. 🌟";
+}
+
+// function to send message to OpenAI API
+async function sendToOpenAI(message) {
+  // add user message to history
+  chatHistory.push({ role: "user", content: message });
+
+  try {
+    // validate API key
+    if (!config.apiKey || config.apiKey === "enter your api-key here") {
+      throw new Error("Please set your OpenAI API key in the config object");
+    }
+
+    const response = await fetch(config.apiEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${config.apiKey}`,
+      },
+      body: JSON.stringify({
+        model: config.model,
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are Sparkle ✨, a helpful and friendly assistant. Use the following information to answer questions about our website: " +
+              websiteKnowledgeBase.content,
+          },
+          ...chatHistory,
+        ],
+        max_tokens: config.maxTokens,
+        temperature: config.temperature,
+      }),
+    });
+
+    // check if response is OK
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      const errorMessage =
+        errorData.error?.message || `HTTP error! Status: ${response.status}`;
+      throw new Error(errorMessage);
+    }
+
+    const data = await response.json();
+
+    // extract message content
+    const botMessage = data.choices[0].message.content;
+
+    // add bot message to history
+    chatHistory.push({ role: "assistant", content: botMessage });
+
+    return botMessage;
+  } catch (error) {
+    console.error("API Error:", error);
+    throw error;
+  }
+}
+
+// function to append user message to chat
+function appendUserMessage(message) {
+  const messageElement = createMessageElement(message, "user");
+  chatLog.appendChild(messageElement);
+  scrollToBottom();
+}
+
+// function to append bot message to chat
+function appendBotMessage(message) {
+  const messageElement = createMessageElement(message, "bot");
+  chatLog.appendChild(messageElement);
+  scrollToBottom();
+}
+
+// create message element
+function createMessageElement(message, role) {
+  const li = document.createElement("li");
+  li.className = `chat-message ${role}`;
+  li.setAttribute("aria-label", role === "user" ? "You say:" : "Sparkle says:");
+
+  // create p
+  const paragraphs = message.split("\n").filter((p) => p.trim() !== "");
+
+  paragraphs.forEach((paragraph) => {
+    const p = document.createElement("p");
+    p.textContent = paragraph;
+    li.appendChild(p);
+  });
+
+  return li;
+}
+
+// show typing indicator
+function showTypingIndicator() {
+  const indicator = document.createElement("li");
+  indicator.className = "typing-indicator";
+  indicator.setAttribute("aria-label", "Sparkle is typing");
+  indicator.innerHTML = `
+    <div class="typing-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  `;
+  chatLog.appendChild(indicator);
+  scrollToBottom();
+}
+
+// remove typing indicator
+function removeTypingIndicator() {
+  const indicator = document.querySelector(".typing-indicator");
+  if (indicator) {
+    indicator.remove();
+  }
+}
+
+// scroll to bottom of the chat
+function scrollToBottom() {
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+// function to handle rate limiting and retries
+async function retryWithExponentialBackoff(fn, retries = 3, delay = 1000) {
+  try {
+    return await fn();
+  } catch (error) {
+    if (retries <= 0 || !error.message.includes("429")) {
+      throw error;
+    }
+
+    console.log(`Rate limited. Retrying in ${delay}ms...`);
+    await new Promise((resolve) => setTimeout(resolve, delay));
+
+    return retryWithExponentialBackoff(fn, retries - 1, delay * 2);
+  }
+}
+
+// handle errors globally
+window.addEventListener("error", (event) => {
+  console.error("Global error:", event.error);
+  appendBotMessage("Sorry, something went wrong. Please try again later.");
+});
+
+// start chat when DOM is fully loaded
+document.addEventListener("DOMContentLoaded", initChat);
